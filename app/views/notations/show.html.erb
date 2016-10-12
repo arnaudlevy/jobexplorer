@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Criterion:</strong>
+  <%= @notation.criterion %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @notation.subject %>
+</p>
+
+<p>
+  <strong>{polymorphic}:</strong>
+  <%= @notation.{polymorphic} %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @notation.score %>
+</p>
+
+<%= link_to 'Edit', edit_notation_path(@notation) %> |
+<%= link_to 'Back', notations_path %>

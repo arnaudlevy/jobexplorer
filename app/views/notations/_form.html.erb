@@ -1,0 +1,37 @@
+<%= form_for(notation) do |f| %>
+  <% if notation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(notation.errors.count, "error") %> prohibited this notation from being saved:</h2>
+
+      <ul>
+      <% notation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :criterion_id %>
+    <%= f.text_field :criterion_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :subject_id %>
+    <%= f.text_field :subject_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :{polymorphic} %>
+    <%= f.text_field :{polymorphic} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score %>
+    <%= f.number_field :score %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
