@@ -1,13 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Notations</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Criterion</th>
       <th>Subject</th>
-      <th>{polymorphic}</th>
       <th>Score</th>
       <th colspan="3"></th>
     </tr>
@@ -18,7 +15,6 @@
       <tr>
         <td><%= notation.criterion %></td>
         <td><%= notation.subject %></td>
-        <td><%= notation.{polymorphic} %></td>
         <td><%= notation.score %></td>
         <td><%= link_to 'Show', notation %></td>
         <td><%= link_to 'Edit', edit_notation_path(notation) %></td>

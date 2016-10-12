@@ -9,5 +9,14 @@
 #
 
 class Company < ApplicationRecord
-  has_many :notations, as: :subject
+  has_many :notations, as: :subject, dependent: :destroy
+  has_many :offers, dependent: :nullify
+
+  def score
+    notations.sum(:score)
+  end
+
+  def to_s
+    "#{name}"
+  end
 end

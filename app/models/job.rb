@@ -9,5 +9,10 @@
 #
 
 class Job < ApplicationRecord
-  has_many :notations, as: :subject
+  has_many :notations, as: :subject, dependent: :destroy
+  has_many :offers, dependent: :nullify
+  
+  def to_s
+    "#{name}"
+  end
 end

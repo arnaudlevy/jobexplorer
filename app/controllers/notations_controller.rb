@@ -28,7 +28,7 @@ class NotationsController < ApplicationController
 
     respond_to do |format|
       if @notation.save
-        format.html { redirect_to @notation, notice: 'Notation was successfully created.' }
+        format.html { redirect_to @notation.subject, notice: 'Notation set.' }
         format.json { render :show, status: :created, location: @notation }
       else
         format.html { render :new }
@@ -54,9 +54,10 @@ class NotationsController < ApplicationController
   # DELETE /notations/1
   # DELETE /notations/1.json
   def destroy
+    @subject = @notation.subject
     @notation.destroy
     respond_to do |format|
-      format.html { redirect_to notations_url, notice: 'Notation was successfully destroyed.' }
+      format.html { redirect_to @subject, notice: 'Notation unset.' }
       format.json { head :no_content }
     end
   end

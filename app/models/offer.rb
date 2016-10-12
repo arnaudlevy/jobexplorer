@@ -14,5 +14,9 @@
 class Offer < ApplicationRecord
   belongs_to :company
   belongs_to :job
-  has_many :notations, as: :subject
+  has_many :notations, as: :subject, dependent: :destroy
+  
+  def to_s
+    "#{name}"
+  end
 end

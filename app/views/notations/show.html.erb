@@ -1,18 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Criterion:</strong>
-  <%= @notation.criterion %>
+  <%= link_to @notation.criterion, @notation.criterion %>
 </p>
 
 <p>
   <strong>Subject:</strong>
-  <%= @notation.subject %>
-</p>
-
-<p>
-  <strong>{polymorphic}:</strong>
-  <%= @notation.{polymorphic} %>
+  <%= link_to @notation.subject, @notation.subject %>
 </p>
 
 <p>
