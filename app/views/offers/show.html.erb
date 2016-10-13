@@ -2,14 +2,22 @@
   <%= @offer %> 
   <%= render 'notations/note_badge', subject: @offer %>
 </h1>
+<%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-default' %><br/><br/>
 <p><%= link_to @offer.url, @offer.url, target: :blank %></p>
-<p>
-  <strong>Company:</strong>
-  <%= link_to @offer.company, @offer.company %>
-</p>
-<p>
-  <strong>Job:</strong>
-  <%= link_to @offer.job, @offer.job %>
-</p>
 <%= render 'notations/note_a_subject', subject: @offer %>
-<%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-default' %>
+<div class="row">
+  <div class="col-md-6">
+    <h3>
+      <%= link_to @offer.company, @offer.company %>
+      <%= render 'notations/note_badge', subject: @offer.company %>
+    </h3>
+    <%= render 'notations/note_a_subject', subject: @offer.company %>
+  </div>
+  <div class="col-md-6">
+    <h3>
+      <%= link_to @offer.job, @offer.job %>
+      <%= render 'notations/note_badge', subject: @offer.job %>
+    </h3>
+    <%= render 'notations/note_a_subject', subject: @offer.job %>
+  </div>
+</div>

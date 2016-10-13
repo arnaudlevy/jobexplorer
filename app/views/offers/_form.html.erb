@@ -1,7 +1,13 @@
 <%= simple_form_for offer do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.association :company, include_blank: false %>
+    </div>
+    <div class="col-md-6">
+      <%= f.association :job, include_blank: false %>
+    </div>
+  </div>
   <%= f.input :name %>
   <%= f.input :url, as: :string %>
-  <%= f.association :company, include_blank: false %>
-  <%= f.association :job, include_blank: false %>
-  <%= f.submit 'Save' %>
+  <%= f.submit 'Save', class: 'btn btn-default' %>
 <% end %>

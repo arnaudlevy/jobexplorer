@@ -23,6 +23,6 @@ class Offer < ApplicationRecord
   end
 
   def to_s
-    "#{name}"
+    name.empty? ? "#{job} @ #{company}" : "#{name}"
   end
 end
