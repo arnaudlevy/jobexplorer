@@ -1,18 +1,15 @@
-<h1><%= @offer %></h1>
-
+<h1>
+  <%= @offer %> 
+  <%= render 'notations/note_badge', subject: @offer %>
+</h1>
 <p><%= link_to @offer.url, @offer.url, target: :blank %></p>
-
 <p>
   <strong>Company:</strong>
   <%= link_to @offer.company, @offer.company %>
 </p>
-
 <p>
   <strong>Job:</strong>
   <%= link_to @offer.job, @offer.job %>
 </p>
-
-<%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-default' %>
-<br/>
-<br/>
 <%= render 'notations/note_a_subject', subject: @offer %>
+<%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-default' %>

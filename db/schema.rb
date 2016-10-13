@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012191712) do
+ActiveRecord::Schema.define(version: 20161013192007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.decimal  "score",      precision: 5, scale: 2
   end
 
   create_table "criterions", force: :cascade do |t|
@@ -29,8 +30,9 @@ ActiveRecord::Schema.define(version: 20161012191712) do
 
   create_table "jobs", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.decimal  "score",      precision: 5, scale: 2
   end
 
   create_table "notations", force: :cascade do |t|
@@ -49,8 +51,9 @@ ActiveRecord::Schema.define(version: 20161012191712) do
     t.text     "url"
     t.integer  "company_id"
     t.integer  "job_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.decimal  "score",      precision: 5, scale: 2
     t.index ["company_id"], name: "index_offers_on_company_id", using: :btree
     t.index ["job_id"], name: "index_offers_on_job_id", using: :btree
   end

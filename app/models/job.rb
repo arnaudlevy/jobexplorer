@@ -6,12 +6,14 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  score      :decimal(5, 2)
 #
 
 class Job < ApplicationRecord
   has_many :notations, as: :subject, dependent: :destroy
-  has_many :offers, dependent: :nullify
-  
+
+  include Notable
+
   def to_s
     "#{name}"
   end

@@ -9,13 +9,19 @@
 #  job_id     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  score      :decimal(5, 2)
 #
 
 class Offer < ApplicationRecord
   belongs_to :company
   belongs_to :job
-  has_many :notations, as: :subject, dependent: :destroy
-  
+
+  include Notable
+
+  def computed_score
+    notations.sum(:score) + company.score.to_f + job.score.to_f
+  end
+
   def to_s
     "#{name}"
   end

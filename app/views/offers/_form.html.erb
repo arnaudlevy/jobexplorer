@@ -1,7 +1,7 @@
 <%= simple_form_for offer do |f| %>
   <%= f.input :name %>
-  <%= f.input :url %>
-  <%= f.association :company %>
-  <%= f.association :job %>
+  <%= f.input :url, as: :string %>
+  <%= f.association :company, include_blank: false %>
+  <%= f.association :job, include_blank: false %>
   <%= f.submit 'Save' %>
 <% end %>

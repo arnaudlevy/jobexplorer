@@ -1,25 +1,26 @@
 <h1>Jobs</h1>
-
-<table class="table">
+<table class="table table-hover">
   <thead>
     <tr>
+      <th>N°</th>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @jobs.each do |job| %>
+    <% @jobs.each_with_index do |job, index| %>
       <tr>
-        <td><%= job.name %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <b><%= index+1 %></b>
+          <%= render 'notations/note_badge', subject: job %>
+        </td>
+        <td><%= link_to job, job %></td>
+        <td>
+          <%= link_to 'Edit', edit_job_path(job), class: 'btn btn-default btn-xs' %>
+          <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Job', new_job_path %>
+<%= link_to 'New Job', new_job_path, class: 'btn btn-default' %>

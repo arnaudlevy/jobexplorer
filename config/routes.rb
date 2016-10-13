@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :offers
   resources :jobs
   resources :companies
-  root to: 'companies#index'
+  root to: 'offers#index'
 end
