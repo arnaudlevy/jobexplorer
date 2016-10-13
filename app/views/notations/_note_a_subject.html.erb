@@ -1,0 +1,31 @@
+<table class="table">
+  <tbody>
+    <% Criterion.all.each do |criterion| %>
+      <tr>
+        <td><%= criterion %></td>
+        <td>
+          <% if criterion.notation_for? subject %>
+            <%= link_to criterion.notation_for(subject), method: :delete do %>
+              <%= fa_icon :ban %></td>
+            <% end %>
+          <% end %>
+        <td>
+          <% note = criterion.note_for subject %>
+          <% 10.times do |index| %>
+            <% 
+            html_class = 'star inactive'
+            html_class = 'star active' if !note.nil? && note > index 
+            %>
+            <%= link_to notations_path(notation: {
+                                        subject_id: subject.id, 
+                                        subject_type: subject.class,
+                                        criterion_id: criterion.id, 
+                                        score: index+1 }), method: :post, class: html_class do %>
+              <%= fa_icon :star %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>  
+</table>

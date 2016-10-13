@@ -1,37 +1,7 @@
-<%= form_for(offer) do |f| %>
-  <% if offer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
-
-      <ul>
-      <% offer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :url %>
-    <%= f.text_area :url %>
-  </div>
-
-  <div class="field">
-    <%= f.label :company_id %>
-    <%= f.text_field :company_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :job_id %>
-    <%= f.text_field :job_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for offer do |f| %>
+  <%= f.input :name %>
+  <%= f.input :url %>
+  <%= f.association :company %>
+  <%= f.association :job %>
+  <%= f.submit 'Save' %>
 <% end %>

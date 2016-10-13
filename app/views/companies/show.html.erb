@@ -1,36 +1,5 @@
 <h1><%= @company %></h1>
-
-<%= link_to 'Edit', edit_company_path(@company) %>
+<%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-default' %>
 <br/>
 <br/>
-<table class="table">
-  <tbody>
-    <% Criterion.all.each do |criterion| %>
-      <tr>
-        <td><%= criterion %></td>
-        <td>
-          <% if criterion.notation_for?(@company) %>
-            <%= link_to criterion.notation_for(@company), method: :delete do %>
-              <%= fa_icon :ban %></td>
-            <% end %>
-          <% end %>
-        <td>
-          <% note = criterion.note_for @company %>
-          <% 10.times do |index| %>
-            <% 
-            html_class = 'star inactive'
-            html_class = 'star active' if !note.nil? && note > index 
-            %>
-            <%= link_to notations_path(notation: {
-                                        subject_id: @company.id, 
-                                        subject_type: @company.class,
-                                        criterion_id: criterion.id, 
-                                        score: index+1 }), method: :post, class: html_class do %>
-              <%= fa_icon :star %>
-            <% end %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>  
-</table>
+<%= render 'notations/note_a_subject', subject: @company %>
