@@ -1,7 +1,7 @@
-<h1>
+<%= content_for :title do %>
   <%= @job %> 
   <%= render 'notations/note_badge', subject: @job %>
-</h1>
+<% end %>
 <%= link_to 'Edit', edit_job_path(@job), class: 'btn btn-default' %><br/><br/>
 <%= render 'notations/note_a_subject', subject: @job %>
 <h3><%= @job.offers.count %> offer(s)</h3>

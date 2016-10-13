@@ -1,7 +1,7 @@
-<h1>
+<%= content_for :title do %>
   <%= @offer %> 
   <%= render 'notations/note_badge', subject: @offer %>
-</h1>
+<% end %>
 <%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-default' %><br/><br/>
 <p><%= link_to @offer.url, @offer.url, target: :blank %></p>
 <%= render 'notations/note_a_subject', subject: @offer %>

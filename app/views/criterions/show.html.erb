@@ -1,9 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @criterion.name %>
-</p>
+<%= content_for :title do %>
+  <%= @criterion %>
+<% end %>
 
 <%= link_to 'Edit', edit_criterion_path(@criterion) %> |
 <%= link_to 'Back', criterions_path %>
