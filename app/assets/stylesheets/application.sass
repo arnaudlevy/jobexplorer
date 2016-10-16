@@ -9,17 +9,28 @@
 .navbar
   background-color: transparent
   border-bottom: none
-  *
+  .navbar-toggle .icon-bar
+    background-color: white
+  a
     color: white !important
   .navbar-nav 
     text-transform: uppercase
     font-size: 13px
     font-weight: bold
 
-.jumbotron
+#navbar
+  li
+    text-align: right
+
+body
   background-image: image-url('background.jpg')
   background-attachment: fixed
   background-size: cover
+  > .container
+    background: white
+
+.jumbotron
+  background: transparent
   padding-top: 130px
   min-height: 360px
   margin-top: -70px
@@ -37,3 +48,6 @@
     color: orange
   &:hover
     color: orange
+
+footer
+  min-height: 300px
